@@ -1,28 +1,42 @@
 public without sharing class BitcoinExchangeService {
+    private static BitcoinExchangeRatesDataModel exchangeRates {
+        get {
+            if (exchangeRates == null) {
+                HttpResponse response = doGet('callout:CoinDesk');
+
+                switch on response.getStatusCode() {
+                    when 200 {
+                        try {
+                            exchangeRates = BitcoinExchangeRatesDataModel.parse(response.getBody());
+                        } catch (System.JSONException jse) {
+                            throw new BitcoinExchangeServiceException(jse.getMessage());
+                        }
+                    }
+                    when 404 {
+                        throw new BitcoinExchangeServiceException('404 error!');
+                    }
+                    when else {
+                        throw new BitcoinExchangeServiceException(
+                            'Unexpected Response code: ' + response.getStatusCode()
+                        );
+                    }
+                }
+            }
+
+            return exchangeRates;
+       }
+       set;
+    }
 
     public class BitcoinExchangeServiceException extends Exception {
     }
 
     public static Decimal getBtcToEurExchangeRate() {
-        HttpResponse response = doGet('callout:CoinDesk');
+        return exchangeRates.bpi.eur.rate_float;
+    }
 
-        switch on response.getStatusCode() {
-            when 200 {
-                try {
-                    return BitcoinExchangeRatesDataModel.parse(response.getBody()).bpi.eur.rate_float;
-                } catch (System.JSONException jse) {
-                    throw new BitcoinExchangeServiceException(jse.getMessage());
-                }
-            }
-            when 404 {
-                throw new BitcoinExchangeServiceException('404 error!');
-            }
-            when else {
-                throw new BitcoinExchangeServiceException(
-                    'Unexpected Response code: ' + response.getStatusCode()
-                );
-            }
-        }
+    public static Decimal getBtcToUsdExchangeRate() {
+        return exchangeRates.bpi.usd.rate_float;
     }
 
     private static HttpResponse doGet(String endpoint) {
