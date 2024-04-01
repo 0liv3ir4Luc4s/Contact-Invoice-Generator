@@ -1,21 +1,31 @@
 public without sharing class BitcoinExchangeService {
+    private static Integer calloutCount = 0;
     private static BitcoinExchangeRatesDataModel exchangeRates {
         get {
+            if (calloutCount == 100) {
+                throw new BitcoinExchangeServiceException(
+                    'Too many failed tries: Callout limit reached, no more callouts will be made in this transaction'
+                );
+            }
+            
             if (exchangeRates == null) {
                 HttpResponse response = doGet('callout:CoinDesk');
 
                 switch on response.getStatusCode() {
                     when 200 {
                         try {
+                            calloutCount++;
                             exchangeRates = BitcoinExchangeRatesDataModel.parse(response.getBody());
                         } catch (System.JSONException jse) {
                             throw new BitcoinExchangeServiceException(jse.getMessage());
                         }
                     }
                     when 404 {
+                        calloutCount++;
                         throw new BitcoinExchangeServiceException('404 error!');
                     }
                     when else {
+                        calloutCount++;
                         throw new BitcoinExchangeServiceException(
                             'Unexpected Response code: ' + response.getStatusCode()
                         );
