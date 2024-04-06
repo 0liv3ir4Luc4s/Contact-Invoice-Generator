@@ -9,4 +9,8 @@ export default class ContactInvoiceForm extends LightningElement {
     DESCRIPTION_FIELD = DESCRIPTION;
 
     objectApiName = 'Invoice__c';
+
+    handleFocus(event) {
+        event.currentTarget.nextElementSibling.focus();
+    }
 }
