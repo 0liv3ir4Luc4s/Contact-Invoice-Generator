@@ -1,4 +1,15 @@
 <template>
     <lightning-card title="Invoice Generator">
+        <lightning-record-edit-form
+            object-api-name={objectApiName}
+        >
+        <lightning-input-field field-name={EUR_PRICE_FIELD}></lightning-input-field>
+        <lightning-input-field field-name={EXPIRATION_DATE_FIELD}></lightning-input-field>
+        <lightning-input-field field-name={DESCRIPTION_FIELD}></lightning-input-field>
+        <div class="slds-var-m-top_medium">
+            <lightning-button variant="brand" type="submit" label="Generate Invoice">
+            </lightning-button>
+        </div>
+    </lightning-record-edit-form>
     </lightning-card>
 </template>
