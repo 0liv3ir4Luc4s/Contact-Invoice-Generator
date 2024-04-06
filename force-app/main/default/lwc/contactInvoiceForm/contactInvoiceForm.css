@@ -1,1 +1,4 @@
-textarea { resize: none; }
+.description {
+    width: 100%;
+    resize: none;
+}
