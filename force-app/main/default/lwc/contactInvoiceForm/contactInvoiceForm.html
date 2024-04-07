@@ -5,7 +5,12 @@
             onsubmit={handleSubmit}
         >
         <div class="slds-form-element__label slds-var-m-left_xx-small" onclick={handleFocus}>EUR Price</div>
-        <lightning-input-field field-name={EUR_PRICE_FIELD} variant="label-hidden"></lightning-input-field>
+        <div class="slds-form-element__control slds-input-has-icon slds-input-has-icon_left">
+            <div class="slds-icon slds-input__icon slds-input__icon_left slds-icon-text-default" aria-hidden="true">
+                <span class="euro-currency-symbol">€</span>
+            </div>
+            <lightning-input-field field-name={EUR_PRICE_FIELD} variant="label-hidden"></lightning-input-field>
+        </div>
         <lightning-input-field field-name={EXPIRATION_DATE_FIELD}></lightning-input-field>
         <div class="slds-form-element__label slds-var-m-left_xx-small" onclick={handleFocus}>Simple Description</div>
         <textarea class="slds-textarea description"></textarea>

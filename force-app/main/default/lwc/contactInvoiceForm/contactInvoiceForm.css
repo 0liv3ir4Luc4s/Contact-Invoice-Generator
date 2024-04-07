@@ -1,4 +1,18 @@
+:host {
+    --slds-c-input-color-border: #c9c9c9;
+}
+
 .description {
     width: 100%;
     resize: none;
+    border-color: #c9c9c9;
+}
+
+.currency-field-container { 
+    position: relative; 
+}
+  
+.euro-currency-symbol { 
+    color: #6a6a65;
+    font-size: .9rem;
 }
