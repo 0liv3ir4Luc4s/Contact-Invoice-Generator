@@ -4,20 +4,35 @@
             object-api-name={objectApiName}
             onsubmit={handleSubmit}
         >
-        <div class="slds-form-element__label slds-var-m-left_xx-small" onclick={handleFocus}>EUR Price</div>
-        <div class="slds-form-element__control slds-input-has-icon slds-input-has-icon_left">
-            <div class="slds-icon slds-input__icon slds-input__icon_left slds-icon-text-default" aria-hidden="true">
-                <span class="euro-currency-symbol">€</span>
-            </div>
-            <lightning-input-field field-name={EUR_PRICE_FIELD} variant="label-hidden"></lightning-input-field>
-        </div>
-        <lightning-input-field field-name={EXPIRATION_DATE_FIELD}></lightning-input-field>
-        <div class="slds-form-element__label slds-var-m-left_xx-small" onclick={handleFocus}>Simple Description</div>
-        <textarea class="slds-textarea description"></textarea>
-        <div class="slds-var-m-top_medium">
-            <lightning-button variant="brand" type="submit" label="Generate Invoice">
-            </lightning-button>
-        </div>
-    </lightning-record-edit-form>
+            <lightning-layout>
+                <lightning-layout-item flexibility="auto" padding="horizontal-large">
+                    <div class="slds-form-element__label" onclick={handleFocus}>EUR Price</div>
+                    <div class="slds-form-element__control slds-input-has-icon slds-input-has-icon_left">
+                        <div class="slds-icon slds-input__icon slds-input__icon_left slds-icon-text-default" aria-hidden="true">
+                            <span class="euro-currency-symbol">€</span>
+                        </div>
+                        <lightning-input-field field-name={EUR_PRICE_FIELD} variant="label-hidden"></lightning-input-field>
+                    </div>
+                </lightning-layout-item>
+            </lightning-layout>
+            <lightning-layout>
+                <lightning-layout-item flexibility="auto" padding="horizontal-large">
+                    <lightning-input-field class="slds-p-horizontal_none expiration-date-padding slds-m-vertical_none" field-name={EXPIRATION_DATE_FIELD}></lightning-input-field>
+                </lightning-layout-item>    
+            </lightning-layout>
+            <lightning-layout>
+                <lightning-layout-item flexibility="auto" padding="horizontal-large">
+                    <div class="slds-form-element__label" onclick={handleFocus}>Simple Description</div>
+                    <textarea class="slds-textarea description"></textarea>
+                </lightning-layout-item>   
+            </lightning-layout>
+            <lightning-layout horizontal-align="center">
+                <lightning-layout-item flexibility="auto">
+                    <div class="slds-m-top_large slds-m-bottom_medium">
+                        <lightning-button variant="brand" type="submit" label="Generate Invoice"></lightning-button>
+                    </div>
+                </lightning-layout-item> 
+            </lightning-layout>
+        </lightning-record-edit-form>
     </lightning-card>
 </template>

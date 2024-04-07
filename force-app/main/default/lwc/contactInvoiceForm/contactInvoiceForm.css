@@ -16,3 +16,7 @@
     color: #6a6a65;
     font-size: .9rem;
 }
+
+.expiration-date-padding {
+    padding-bottom: 1rem !important;
+}
