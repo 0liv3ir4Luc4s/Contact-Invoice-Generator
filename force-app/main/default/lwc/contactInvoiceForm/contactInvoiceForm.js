@@ -2,7 +2,6 @@ import { LightningElement, api } from 'lwc';
 import EUR_PRICE from '@salesforce/schema/Invoice__c.BasePrice__c';
 import EXPIRATION_DATE from '@salesforce/schema/Invoice__c.ExpirationDate__c';
 import DESCRIPTION from '@salesforce/schema/Invoice__c.Description__c';
-import CONTACT from '@salesforce/schema/Invoice__c.Contact__c';
 
 export default class ContactInvoiceForm extends LightningElement {
     EUR_PRICE_FIELD = EUR_PRICE;

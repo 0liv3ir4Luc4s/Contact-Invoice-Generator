@@ -23,13 +23,34 @@
             <lightning-layout>
                 <lightning-layout-item flexibility="auto" padding="horizontal-large">
                     <div class="slds-form-element__label" onclick={handleFocus}>Simple Description</div>
-                    <textarea class="slds-textarea description"></textarea>
+                    <textarea class="slds-textarea description slds-m-bottom_small"></textarea>
                 </lightning-layout-item>   
             </lightning-layout>
-            <lightning-layout horizontal-align="center">
-                <lightning-layout-item flexibility="auto">
+            <lightning-layout>
+                <lightning-layout-item flexibility="auto" padding="horizontal-large">
+                    <ul class="slds-accordion accordion">
+                        <li class="slds-accordion__list-item">
+                          <section class="slds-accordion__section slds-is-open">
+                            <div class="slds-accordion__summary">
+                              <h2 class="slds-accordion__summary-heading">
+                                <button class="slds-button slds-button_reset slds-accordion__summary-action" aria-expanded="true" title="Accordion summary">
+                                  <lightning-icon class="slds-accordion__summary-action-icon slds-button__icon slds-button__icon_left accordion-switch" icon-name='utility:switch' alternative-text='switch' size='xx-small' title='switch'></lightning-icon>
+                                  <span class="slds-accordion__summary-content">Additional Contact Information</span>
+                                </button>
+                              </h2>
+                            </div>
+                            <div class="slds-accordion__content">
+                                <c-contact-invoice-form-contact-roll-up-view record-id={recordId}></c-contact-invoice-form-contact-roll-up-view>
+                            </div>
+                          </section>
+                        </li>
+                    </ul>
+                </lightning-layout-item>   
+            </lightning-layout>
+            <lightning-layout>
+                <lightning-layout-item flexibility="auto" class="button-container">
                     <div class="slds-m-top_large slds-m-bottom_medium">
-                        <lightning-button variant="brand" type="submit" label="Generate Invoice"></lightning-button>
+                        <lightning-button stretch="true" variant="brand" type="submit" label="Generate Invoice"></lightning-button>
                     </div>
                 </lightning-layout-item> 
             </lightning-layout>
