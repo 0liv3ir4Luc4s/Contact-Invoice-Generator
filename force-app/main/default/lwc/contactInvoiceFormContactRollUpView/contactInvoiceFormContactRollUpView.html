@@ -1,0 +1,32 @@
+<template>
+    <lightning-record-view-form
+    record-id={recordId}
+    object-api-name="Contact"
+    class="view"
+    >
+        <lightning-layout class="slds-m-bottom_xx-small">
+            <lightning-layout-item flexibility="auto" padding="horizontal-large">
+                <div class="accordion-label">Number of all Past Invoices</div>
+            </lightning-layout-item> 
+            <lightning-layout-item flexibility="auto" padding="horizontal-large" class="slds-text-align_right">
+                <lightning-output-field field-name={NUMBER_OF_PAST_INVOICES_FIELD} variant="label-hidden"></lightning-output-field>
+            </lightning-layout-item>   
+        </lightning-layout>
+        <lightning-layout class="slds-m-bottom_xx-small">
+            <lightning-layout-item flexibility="auto" padding="horizontal-large">
+                <div class="accordion-label">Number of Open Invoices</div>
+            </lightning-layout-item> 
+            <lightning-layout-item flexibility="auto" padding="horizontal-large" class="slds-text-align_right">
+                <lightning-output-field field-name={NUMBER_OF_OPEN_INVOICES_FIELD} variant="label-hidden"></lightning-output-field>
+            </lightning-layout-item>   
+        </lightning-layout>
+        <lightning-layout>
+            <lightning-layout-item flexibility="auto" padding="horizontal-large">
+                <div class="accordion-label">Total Amount Paid</div>
+            </lightning-layout-item> 
+            <lightning-layout-item flexibility="auto" padding="horizontal-large" class="slds-text-align_right">
+                <lightning-output-field field-name={TOTAL_AMOUNT_PAID_FIELD} variant="label-hidden"></lightning-output-field>
+            </lightning-layout-item>   
+        </lightning-layout>
+    </lightning-record-view-form>
+</template>

@@ -1,0 +1,39 @@
+:host {
+    --slds-c-input-color-border: #c9c9c9;
+}
+
+.description {
+    width: 100%;
+    resize: none;
+    border-color: #c9c9c9;
+}
+
+.currency-field-container { 
+    position: relative; 
+}
+  
+.euro-currency-symbol { 
+    color: #6a6a65;
+    font-size: .9rem;
+}
+
+.expiration-date-padding {
+    padding-bottom: 1rem !important;
+}
+
+.accordion .slds-accordion__summary-heading {
+    padding-bottom: .8rem;
+    border-bottom: 1px solid #dbd4d4;
+    font-size: 1.1rem;
+    color: black;
+}
+
+.accordion-switch { 
+    margin-bottom: .3rem;
+    margin-left: 1rem;
+}
+
+.button-container {
+    padding-left: 6rem;
+    padding-right: 6rem;
+}
